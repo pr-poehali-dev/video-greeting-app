@@ -1,0 +1,31 @@
+{
+  "tests": [
+    {
+      "name": "Test CORS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {}
+    },
+    {
+      "name": "Test video generation with valid data",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "occasion": "birthday",
+        "style": "modern",
+        "greetingText": "С днём рождения! Желаю счастья и здоровья!",
+        "duration": 30
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": "boolean",
+        "imageUrl": "string",
+        "audioBase64": "string",
+        "duration": "number",
+        "message": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
